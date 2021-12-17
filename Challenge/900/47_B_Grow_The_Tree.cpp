@@ -1,5 +1,5 @@
-// B. Getting an A
-// Link - https://codeforces.com/problemset/problem/991/B
+// B. Grow The Tree
+// Link - https://codeforces.com/problemset/problem/1248/B
 
 
 
@@ -21,20 +21,15 @@ int32_t main() {
 
 	int n;
 	cin >> n;
-	int arr[n], sum = 0, count = 0;
-	vector <int> v;
-	fora(i, 0, n) {
-		cin >> arr[i];
-		sum += arr[i];
-		if (arr[i] != 5) v.pb(arr[i]);
-	} sort(v.begin(), v.end());
+	int arr[n];
+	fora(i, 0, n) cin >> arr[i];
+	sort(arr, arr + n);
 
-	for (auto x : v) {
-		if (round((double)sum / n) == 5) break;
-		else count++;
+	int x = 0, y = 0;
+	rfora(i, n / 2, n) x += arr[i];
+	fora(i, 0, n / 2) y += arr[i];
 
-		sum -= x; sum += 5;
-	} cout << count;
+	cout << x*x + y*y;
 
 	return 0;
 }

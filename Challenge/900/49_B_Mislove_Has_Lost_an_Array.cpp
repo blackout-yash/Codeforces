@@ -1,5 +1,5 @@
-// B. Getting an A
-// Link - https://codeforces.com/problemset/problem/991/B
+// B. Mislove Has Lost an Array
+// Link - https://codeforces.com/problemset/problem/1204/B
 
 
 
@@ -19,22 +19,19 @@ int32_t main() {
 	cin.tie(NULL);
 	cout.tie(NULL);
 
-	int n;
-	cin >> n;
-	int arr[n], sum = 0, count = 0;
-	vector <int> v;
+	int n, l, r, i = 0, minimal = 0, maximal = 0;
+	cin >> n >> l >> r;
+
 	fora(i, 0, n) {
-		cin >> arr[i];
-		sum += arr[i];
-		if (arr[i] != 5) v.pb(arr[i]);
-	} sort(v.begin(), v.end());
+		minimal += (pow(2, l - 1));
+		if (l != 1) l--;
+	}
 
-	for (auto x : v) {
-		if (round((double)sum / n) == 5) break;
-		else count++;
+	fora(j, 0, n) {
+		maximal += (pow(2, i));
+		if (i < r - 1) i++;
+	}
 
-		sum -= x; sum += 5;
-	} cout << count;
-
+	cout << minimal << " " << maximal;
 	return 0;
 }

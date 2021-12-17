@@ -1,5 +1,5 @@
-// B. Getting an A
-// Link - https://codeforces.com/problemset/problem/991/B
+// B. Shooting
+// Link - https://codeforces.com/problemset/problem/1216/B
 
 
 
@@ -21,20 +21,20 @@ int32_t main() {
 
 	int n;
 	cin >> n;
-	int arr[n], sum = 0, count = 0;
-	vector <int> v;
+	vector <pair <int, int>> v;
 	fora(i, 0, n) {
-		cin >> arr[i];
-		sum += arr[i];
-		if (arr[i] != 5) v.pb(arr[i]);
+		int x; cin >> x;
+		v.pb(mp(x, i + 1));
 	} sort(v.begin(), v.end());
 
-	for (auto x : v) {
-		if (round((double)sum / n) == 5) break;
-		else count++;
-
-		sum -= x; sum += 5;
-	} cout << count;
+	int ans = 0, x = 0;
+	vector <int> temp;
+	rfora(i, 0, n) {
+		ans += (x * v[i].first) + 1;
+		x++;
+		temp.pb(v[i].second);
+	} cout << ans nline;
+	for (auto x : temp) cout << x << " ";
 
 	return 0;
 }
