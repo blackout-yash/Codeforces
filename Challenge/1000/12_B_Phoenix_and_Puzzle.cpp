@@ -1,5 +1,5 @@
-// A. Let's Watch Football
-// Link - https://codeforces.com/contest/195/problem/A
+// B. Phoenix and Puzzle
+// Link - https://codeforces.com/problemset/problem/1515/B
 
 
 
@@ -19,14 +19,19 @@ int32_t main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 
-	int a, b, c;
-	cin >> a >> b >> c;
-
-	int total = a * c;
-	int downloaded = b * c;
-	int needed = total - downloaded;
-
-	cout << ceil((double)needed / b);
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
+		cin >> n;
+		if (n & 1) cout << "NO\n";
+		else {
+			int num1 = sqrt(n / 2), num2 = sqrt(n / 4);
+			if (n % 2 == 0 && num1 * num1 == n / 2) cout << "YES\n";
+			else if (n % 4 == 0 && num2 * num2 == n / 4) cout << "YES\n";
+			else cout << "NO\n";
+		}
+	}
 
 	return 0;
 }
